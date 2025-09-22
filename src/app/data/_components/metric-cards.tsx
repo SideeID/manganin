@@ -1,15 +1,22 @@
 import { MOCK_METRICS } from "./metrics";
+import { useDataStore } from "./store";
 
 export function MetricCards() {
+  const { category } = useDataStore();
+
+  const visibleMetrics =
+    category === "All"
+      ? MOCK_METRICS
+      : MOCK_METRICS.filter((m) => m.name === category);
+
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-      {MOCK_METRICS.map((m) => (
+      {visibleMetrics.map((m) => (
         <div
           key={m.name}
           className={`rounded-[10px] border-0 p-6 text-white ${m.bgClass}`}
         >
           <div className="flex items-center justify-between">
-            {/* Chart/Icon on the left */}
             <div className="relative h-16 w-16">
               <svg className="h-16 w-16 -rotate-90" viewBox="0 0 36 36">
                 <path
@@ -28,7 +35,6 @@ export function MetricCards() {
               </svg>
             </div>
 
-            {/* Percentage and label on the right */}
             <div className="text-right">
               <div className="text-3xl font-bold">{m.value}%</div>
               <div className="text-white/80">{m.name}</div>

@@ -43,4 +43,27 @@ export const NAV_DATA: NavSection[] = [
       },
     ],
   },
+  {
+    label: "MENU LAINNYA",
+    items: [
+      {
+        title: "Pengaturan",
+        url: "/pengaturan",
+        icon: Icons.GearIcon,
+        items: [],
+      },
+      {
+        title: "Info",
+        url: "/info",
+        icon: Icons.InfoIcon,
+        items: [],
+      },
+      {
+        title: "Logout",
+        url: "/logout",
+        icon: Icons.LogoutIcon,
+        items: [],
+      },
+    ],
+  },
 ];

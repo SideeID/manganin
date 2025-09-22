@@ -66,37 +66,81 @@ export function Sidebar() {
 
           {/* Navigation: flat list */}
           <div className="custom-scrollbar mt-6 flex-1 overflow-y-auto pr-3 min-[850px]:mt-10">
-            {NAV_DATA.map((section) => (
-              <div key={section.label} className="mb-6">
-                <h2 className="mb-5 text-sm font-medium text-dark-4 dark:text-dark-6">
-                  {section.label}
-                </h2>
+            {/* Main Menu Section */}
+            {NAV_DATA.filter((section) => section.label === "MENU").map(
+              (section) => (
+                <div key={section.label} className="mb-6">
+                  <h2 className="mb-5 text-xs font-medium text-dark-4 dark:text-dark-6">
+                    {section.label}
+                  </h2>
 
-                <nav role="navigation" aria-label={section.label}>
-                  <ul className="space-y-2">
-                    {section.items.map((item) => {
-                      const href = item.url;
-                      return (
-                        <li key={item.title}>
-                          <MenuItem
-                            className="flex items-center gap-3 py-3"
-                            as="link"
-                            href={href}
-                            isActive={pathname === href}
-                          >
-                            <item.icon
-                              className="size-6 shrink-0"
-                              aria-hidden="true"
-                            />
-                            <span>{item.title}</span>
-                          </MenuItem>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </nav>
-              </div>
-            ))}
+                  <nav role="navigation" aria-label={section.label}>
+                    <ul className="space-y-2">
+                      {section.items.map((item) => {
+                        const href = item.url;
+                        const isLogout = item.title === "Logout";
+                        return (
+                          <li key={item.title}>
+                            <MenuItem
+                              className="flex items-center gap-3 py-3"
+                              as="link"
+                              href={href}
+                              isActive={pathname === href}
+                              isLogout={isLogout}
+                            >
+                              <item.icon
+                                className="size-5 shrink-0"
+                                aria-hidden="true"
+                              />
+                              <span>{item.title}</span>
+                            </MenuItem>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </nav>
+                </div>
+              ),
+            )}
+          </div>
+
+          {/* Bottom Menu Section */}
+          <div className="pb-4 pr-3">
+            {NAV_DATA.filter((section) => section.label === "MENU LAINNYA").map(
+              (section) => (
+                <div key={section.label} className="mb-6">
+                  <h2 className="mb-5 text-xs font-medium text-dark-4 dark:text-dark-6">
+                    {section.label}
+                  </h2>
+
+                  <nav role="navigation" aria-label={section.label}>
+                    <ul className="space-y-2">
+                      {section.items.map((item) => {
+                        const href = item.url;
+                        const isLogout = item.title === "Logout";
+                        return (
+                          <li key={item.title}>
+                            <MenuItem
+                              className="flex items-center gap-3 py-3"
+                              as="link"
+                              href={href}
+                              isActive={pathname === href}
+                              isLogout={isLogout}
+                            >
+                              <item.icon
+                                className="size-5 shrink-0"
+                                aria-hidden="true"
+                              />
+                              <span>{item.title}</span>
+                            </MenuItem>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </nav>
+                </div>
+              ),
+            )}
           </div>
         </div>
       </aside>

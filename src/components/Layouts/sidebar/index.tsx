@@ -28,9 +28,9 @@ export function Sidebar() {
 
       <aside
         className={cn(
-          "max-w-[200px] overflow-hidden border-r border-gray-200 bg-[#F3F2FC] transition-[width] duration-200 ease-linear dark:border-gray-800 dark:bg-gray-dark",
+          "shrink-0 overflow-hidden border-r border-gray-200 bg-[#F3F2FC] transition-[width] duration-200 ease-linear dark:border-gray-800 dark:bg-gray-dark",
           isMobile ? "fixed bottom-0 top-0 z-50" : "sticky top-0 h-screen",
-          isOpen ? "w-full" : "w-0",
+          isOpen ? "w-[200px]" : "w-0",
         )}
         aria-label="Main navigation"
         aria-hidden={!isOpen}

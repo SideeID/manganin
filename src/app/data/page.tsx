@@ -24,7 +24,6 @@ function Content() {
       <ShowcaseSection >
         <div className="space-y-6">
           <TimePeriodTabs periods={timePeriods} />
-
           <MetricCards />
 
           <div className="space-y-4">

@@ -2,7 +2,11 @@ import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
-  content: ["./src/**/*.{js,jsx,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  safelist: [
+    "bg-brand",
+    "bg-blue",
+  ],
   darkMode: ["class"],
   theme: {
     extend: {
